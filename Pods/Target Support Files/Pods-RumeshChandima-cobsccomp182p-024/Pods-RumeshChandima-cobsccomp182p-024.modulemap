@@ -1,0 +1,6 @@
+framework module Pods_RumeshChandima_cobsccomp182p_024 {
+  umbrella header "Pods-RumeshChandima-cobsccomp182p-024-umbrella.h"
+
+  export *
+  module * { export * }
+}

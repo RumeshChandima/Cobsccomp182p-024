@@ -133,6 +133,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S6V-pj-MYi"/>
                     </view>
+                    <connections>
+                        <outlet property="createAnAccount" destination="cqe-Gg-ELj" id="T9f-XF-ks8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Pt-dR-15d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,20 +144,11 @@
         <!--NIBM Event-->
         <scene sceneID="abt-VU-R8y">
             <objects>
-                <viewController id="BwB-pI-Nkx" customClass="RegisterController" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" id="BwB-pI-Nkx" customClass="RegisterController" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XFn-pT-pyI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7E-bo-9bn" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
-                                <rect key="frame" x="30" y="183.5" width="354" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Obo-tc-2Wt"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnn-8A-vOO" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
                                 <rect key="frame" x="30" y="238.5" width="354" height="50"/>
                                 <constraints>
@@ -213,18 +207,28 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="btnRegister:" destination="BwB-pI-Nkx" eventType="touchUpInside" id="iYi-qS-6So"/>
+                                    <segue destination="UFa-n2-Hsg" kind="show" id="7TB-gM-csu"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBG-RA-PTZ" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="183.5" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dUH-86-LQR"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qms-mR-m3q" secondAttribute="trailing" constant="30" id="12K-AT-3W8"/>
                             <constraint firstItem="Sgt-Yx-J3e" firstAttribute="top" secondItem="gnn-8A-vOO" secondAttribute="bottom" constant="5" id="1oo-De-lOr"/>
-                            <constraint firstItem="gnn-8A-vOO" firstAttribute="top" secondItem="W7E-bo-9bn" secondAttribute="bottom" constant="5" id="65l-do-TwR"/>
-                            <constraint firstItem="W7E-bo-9bn" firstAttribute="top" secondItem="qms-mR-m3q" secondAttribute="bottom" constant="5" id="8vx-T7-O9J"/>
                             <constraint firstItem="HAn-T5-hax" firstAttribute="top" secondItem="cam-KY-vdI" secondAttribute="bottom" constant="15" id="EeT-Mm-TeR"/>
                             <constraint firstItem="HAn-T5-hax" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="G26-2w-B1g"/>
                             <constraint firstItem="Sgt-Yx-J3e" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="HgI-bw-Zcx"/>
-                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="W7E-bo-9bn" secondAttribute="trailing" constant="30" id="JQY-CZ-581"/>
                             <constraint firstItem="dOz-qL-TtG" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="JTO-nC-2uG"/>
                             <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="HAn-T5-hax" secondAttribute="trailing" constant="30" id="JgQ-zN-HL7"/>
                             <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="gnn-8A-vOO" secondAttribute="trailing" constant="30" id="MCe-y4-TtU"/>
@@ -233,22 +237,60 @@
                             <constraint firstItem="qms-mR-m3q" firstAttribute="leading" secondItem="XFn-pT-pyI" secondAttribute="leading" constant="30" id="WDg-YI-WxW"/>
                             <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="Sgt-Yx-J3e" secondAttribute="trailing" constant="30" id="Zb5-a6-y9c"/>
                             <constraint firstItem="dOz-qL-TtG" firstAttribute="top" secondItem="eNe-Yo-k3Z" secondAttribute="bottom" constant="5" id="b5z-En-BlW"/>
-                            <constraint firstItem="W7E-bo-9bn" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="eAj-GD-5an"/>
                             <constraint firstItem="eNe-Yo-k3Z" firstAttribute="top" secondItem="Sgt-Yx-J3e" secondAttribute="bottom" constant="10" id="eId-9q-jnX"/>
+                            <constraint firstItem="bBG-RA-PTZ" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="hMG-Pj-X9v"/>
                             <constraint firstItem="cam-KY-vdI" firstAttribute="top" secondItem="dOz-qL-TtG" secondAttribute="bottom" constant="5" id="ioi-Tn-oul"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="bBG-RA-PTZ" secondAttribute="trailing" constant="30" id="jxZ-6F-Z2S"/>
+                            <constraint firstItem="gnn-8A-vOO" firstAttribute="top" secondItem="bBG-RA-PTZ" secondAttribute="bottom" constant="5" id="kiU-kO-rzG"/>
                             <constraint firstItem="qms-mR-m3q" firstAttribute="top" secondItem="Opo-yh-28E" secondAttribute="top" constant="40" id="qZt-xW-4Am"/>
                             <constraint firstItem="gnn-8A-vOO" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="saU-s5-ovI"/>
                             <constraint firstAttribute="trailing" secondItem="eNe-Yo-k3Z" secondAttribute="trailing" constant="30" id="svk-w8-Eio"/>
                             <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="dOz-qL-TtG" secondAttribute="trailing" constant="30" id="v9B-xJ-IRt"/>
                             <constraint firstItem="eNe-Yo-k3Z" firstAttribute="leading" secondItem="XFn-pT-pyI" secondAttribute="leading" constant="30" id="wmy-5s-VNH"/>
+                            <constraint firstItem="bBG-RA-PTZ" firstAttribute="top" secondItem="qms-mR-m3q" secondAttribute="bottom" constant="5" id="xuW-G7-5Tm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Opo-yh-28E"/>
                     </view>
                     <navigationItem key="navigationItem" title="NIBM Event" id="yW7-3l-JWM"/>
+                    <connections>
+                        <outlet property="txtConfirmPassword" destination="cam-KY-vdI" id="dbe-nQ-FdD"/>
+                        <outlet property="txtEmail" destination="Sgt-Yx-J3e" id="55v-oS-GQj"/>
+                        <outlet property="txtFirstName" destination="bBG-RA-PTZ" id="Wn3-fZ-j8y"/>
+                        <outlet property="txtLastName" destination="gnn-8A-vOO" id="fcw-17-1us"/>
+                        <outlet property="txtPassword" destination="dOz-qL-TtG" id="inQ-4b-qHy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JND-4a-iBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2652.1739130434785" y="20.758928571428569"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="H5S-rS-idE">
+            <objects>
+                <tableViewController storyboardIdentifier="Home" id="UFa-n2-Hsg" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8m5-sO-sXy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9RV-6E-sb0">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9RV-6E-sb0" id="SRz-NZ-GN8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UFa-n2-Hsg" id="7IA-9b-EFF"/>
+                            <outlet property="delegate" destination="UFa-n2-Hsg" id="IQx-D8-Wdf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TF6-EI-3Jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3438" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XMq-m1-KFh">

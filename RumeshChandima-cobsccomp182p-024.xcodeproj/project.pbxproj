@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		566E54CDEBC1EFC8F0096ADF /* Pods_RumeshChandima_cobsccomp182p_024.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58449389366F0327DD4EA9B /* Pods_RumeshChandima_cobsccomp182p_024.framework */; };
 		6F1D39992402C09600935AC7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1D39982402C09600935AC7 /* RegisterController.swift */; };
+		6F1D399B2402E4A900935AC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F1D399A2402E4A900935AC7 /* GoogleService-Info.plist */; };
 		6FA1516624024EC200CDDED0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1516524024EC200CDDED0 /* LoginController.swift */; };
 		6FA1516A2402563B00CDDED0 /* SAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA151692402563B00CDDED0 /* SAButton.swift */; };
 		6FA1516C240257D800CDDED0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1516B240257D800CDDED0 /* Constants.swift */; };
@@ -39,7 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E21C37956C90507DBC38C18 /* Pods-RumeshChandima-cobsccomp182p-024.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RumeshChandima-cobsccomp182p-024.debug.xcconfig"; path = "Target Support Files/Pods-RumeshChandima-cobsccomp182p-024/Pods-RumeshChandima-cobsccomp182p-024.debug.xcconfig"; sourceTree = "<group>"; };
 		6F1D39982402C09600935AC7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		6F1D399A2402E4A900935AC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6FA1516524024EC200CDDED0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		6FA151692402563B00CDDED0 /* SAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAButton.swift; sourceTree = "<group>"; };
 		6FA1516B240257D800CDDED0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 		6FFAE70323F19DF5005B424A /* RumeshChandima-cobsccomp182p-024UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RumeshChandima-cobsccomp182p-024UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FFAE70723F19DF5005B424A /* RumeshChandima_cobsccomp182p_024UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RumeshChandima_cobsccomp182p_024UITests.swift; sourceTree = "<group>"; };
 		6FFAE70923F19DF5005B424A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EA104DF541CB29C9BB938EE /* Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig"; path = "Target Support Files/Pods-RumeshChandima-cobsccomp182p-024/Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig"; sourceTree = "<group>"; };
+		F58449389366F0327DD4EA9B /* Pods_RumeshChandima_cobsccomp182p_024.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RumeshChandima_cobsccomp182p_024.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				566E54CDEBC1EFC8F0096ADF /* Pods_RumeshChandima_cobsccomp182p_024.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +108,8 @@
 				6FFAE6FB23F19DF5005B424A /* RumeshChandima-cobsccomp182p-024Tests */,
 				6FFAE70623F19DF5005B424A /* RumeshChandima-cobsccomp182p-024UITests */,
 				6FFAE6E523F19DEF005B424A /* Products */,
+				8A1FC4FF2622D278A50292BC /* Pods */,
+				B5EA9BB97590A6F3276046C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +126,7 @@
 		6FFAE6E623F19DEF005B424A /* RumeshChandima-cobsccomp182p-024 */ = {
 			isa = PBXGroup;
 			children = (
+				6F1D399A2402E4A900935AC7 /* GoogleService-Info.plist */,
 				6FA1516824024F4300CDDED0 /* CustomViews */,
 				6FFAE6E723F19DEF005B424A /* AppDelegate.swift */,
 				6FFAE6E923F19DEF005B424A /* ViewController.swift */,
@@ -148,6 +158,24 @@
 			path = "RumeshChandima-cobsccomp182p-024UITests";
 			sourceTree = "<group>";
 		};
+		8A1FC4FF2622D278A50292BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E21C37956C90507DBC38C18 /* Pods-RumeshChandima-cobsccomp182p-024.debug.xcconfig */,
+				8EA104DF541CB29C9BB938EE /* Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5EA9BB97590A6F3276046C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F58449389366F0327DD4EA9B /* Pods_RumeshChandima_cobsccomp182p_024.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FFAE70C23F19DF5005B424A /* Build configuration list for PBXNativeTarget "RumeshChandima-cobsccomp182p-024" */;
 			buildPhases = (
+				2EB239726E31C6C45F2F279A /* [CP] Check Pods Manifest.lock */,
 				6FFAE6E023F19DEF005B424A /* Sources */,
 				6FFAE6E123F19DEF005B424A /* Frameworks */,
 				6FFAE6E223F19DEF005B424A /* Resources */,
+				5741E9F936F994B531D26BCC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FFAE6F223F19DF5005B424A /* LaunchScreen.storyboard in Resources */,
+				6F1D399B2402E4A900935AC7 /* GoogleService-Info.plist in Resources */,
 				6FFAE6EF23F19DF5005B424A /* Assets.xcassets in Resources */,
 				6FFAE6ED23F19DEF005B424A /* Main.storyboard in Resources */,
 			);
@@ -273,6 +304,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EB239726E31C6C45F2F279A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RumeshChandima-cobsccomp182p-024-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5741E9F936F994B531D26BCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RumeshChandima-cobsccomp182p-024/Pods-RumeshChandima-cobsccomp182p-024-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RumeshChandima-cobsccomp182p-024/Pods-RumeshChandima-cobsccomp182p-024-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RumeshChandima-cobsccomp182p-024/Pods-RumeshChandima-cobsccomp182p-024-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6FFAE6E023F19DEF005B424A /* Sources */ = {
@@ -458,6 +531,7 @@
 		};
 		6FFAE70D23F19DF5005B424A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E21C37956C90507DBC38C18 /* Pods-RumeshChandima-cobsccomp182p-024.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -475,6 +549,7 @@
 		};
 		6FFAE70E23F19DF5005B424A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EA104DF541CB29C9BB938EE /* Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
