@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="75E-DE-MBq">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,9 +13,9 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -19,6 +23,253 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-233" y="21"/>
+        </scene>
+        <!--Login Controller-->
+        <scene sceneID="kxP-Gm-Ec9">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="3Mg-jq-BaR" customClass="LoginController" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HOA-XU-9zR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-Rb-c0a" customClass="SAButton" customModule="RumeshChandima_cobsccomp182p_024">
+                                <rect key="frame" x="30" y="736" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wWu-YZ-nPY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="LOGIN"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrY-yB-G1y" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="636" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vtT-pO-gef"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yr1-lG-7wf" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="576" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Vym-rW-Puv"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NIBM-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="bUU-jt-100">
+                                <rect key="frame" x="57" y="273" width="300" height="100"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ZPv-Vv-PSB"/>
+                                    <constraint firstAttribute="height" constant="100" id="ZkF-gY-uLN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIBM Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51t-9B-F6y">
+                                <rect key="frame" x="40" y="212" width="334" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="0CI-2p-f1u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmw-JK-lip">
+                                <rect key="frame" x="30" y="701" width="354" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="18t-d4-J8w"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="FgT-pL-f3F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="textColor" red="0.071295131629999994" green="0.52621667459999999" blue="0.88235644040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go To Without Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aft-zc-wzH">
+                                <rect key="frame" x="30" y="856" width="354" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="qMH-Y9-MNq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                <color key="textColor" red="0.071295131629999994" green="0.52621667459999999" blue="0.88235644040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create An Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqe-Gg-ELj">
+                                <rect key="frame" x="30" y="826" width="354" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="hLo-L3-NSL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                <color key="textColor" red="0.071295131629999994" green="0.52621667459999999" blue="0.88235644040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S6V-pj-MYi" firstAttribute="trailing" secondItem="Aft-zc-wzH" secondAttribute="trailing" constant="30" id="2A9-Hs-Uyu"/>
+                            <constraint firstAttribute="bottom" secondItem="Aft-zc-wzH" secondAttribute="bottom" constant="20" id="B9r-c4-9Iw"/>
+                            <constraint firstItem="S6V-pj-MYi" firstAttribute="trailing" secondItem="J3g-Rb-c0a" secondAttribute="trailing" constant="30" id="DuE-O0-cYT"/>
+                            <constraint firstItem="cqe-Gg-ELj" firstAttribute="leading" secondItem="S6V-pj-MYi" secondAttribute="leading" constant="30" id="Fb2-tI-fJp"/>
+                            <constraint firstItem="S6V-pj-MYi" firstAttribute="trailing" secondItem="hmw-JK-lip" secondAttribute="trailing" constant="30" id="Gqh-qp-7C0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="51t-9B-F6y" secondAttribute="trailing" constant="20" id="Lyc-Cy-l4b"/>
+                            <constraint firstItem="bUU-jt-100" firstAttribute="top" secondItem="51t-9B-F6y" secondAttribute="bottom" constant="20" id="P1a-lR-Uhn"/>
+                            <constraint firstItem="bUU-jt-100" firstAttribute="centerY" secondItem="HOA-XU-9zR" secondAttribute="centerY" constant="-125" id="PqU-p5-Uve"/>
+                            <constraint firstItem="LrY-yB-G1y" firstAttribute="leading" secondItem="S6V-pj-MYi" secondAttribute="leading" constant="30" id="R6S-6w-1Zh"/>
+                            <constraint firstItem="J3g-Rb-c0a" firstAttribute="leading" secondItem="S6V-pj-MYi" secondAttribute="leading" constant="30" id="SHX-4P-zw5"/>
+                            <constraint firstItem="hmw-JK-lip" firstAttribute="leading" secondItem="S6V-pj-MYi" secondAttribute="leading" constant="30" id="Wh5-xB-Lch"/>
+                            <constraint firstItem="Aft-zc-wzH" firstAttribute="leading" secondItem="S6V-pj-MYi" secondAttribute="leading" constant="30" id="Yde-p0-jxg"/>
+                            <constraint firstItem="S6V-pj-MYi" firstAttribute="trailing" secondItem="LrY-yB-G1y" secondAttribute="trailing" constant="30" id="ZbS-i2-oq2"/>
+                            <constraint firstItem="cqe-Gg-ELj" firstAttribute="top" secondItem="J3g-Rb-c0a" secondAttribute="bottom" constant="40" id="a2l-XX-Qy3"/>
+                            <constraint firstItem="J3g-Rb-c0a" firstAttribute="top" secondItem="hmw-JK-lip" secondAttribute="bottom" constant="15" id="f7N-tQ-pO1"/>
+                            <constraint firstItem="yr1-lG-7wf" firstAttribute="leading" secondItem="S6V-pj-MYi" secondAttribute="leading" constant="30" id="hjw-Oq-sHg"/>
+                            <constraint firstItem="S6V-pj-MYi" firstAttribute="trailing" secondItem="cqe-Gg-ELj" secondAttribute="trailing" constant="30" id="nvA-iV-Bn4"/>
+                            <constraint firstItem="hmw-JK-lip" firstAttribute="top" secondItem="LrY-yB-G1y" secondAttribute="bottom" constant="15" id="rlL-jr-Y8f"/>
+                            <constraint firstItem="Aft-zc-wzH" firstAttribute="top" secondItem="cqe-Gg-ELj" secondAttribute="bottom" constant="10" id="s5R-G0-f5I"/>
+                            <constraint firstItem="S6V-pj-MYi" firstAttribute="trailing" secondItem="yr1-lG-7wf" secondAttribute="trailing" constant="30" id="sAD-an-PLz"/>
+                            <constraint firstItem="LrY-yB-G1y" firstAttribute="top" secondItem="yr1-lG-7wf" secondAttribute="bottom" constant="10" id="tfr-K2-USi"/>
+                            <constraint firstItem="bUU-jt-100" firstAttribute="centerX" secondItem="HOA-XU-9zR" secondAttribute="centerX" id="v4I-7m-nZY"/>
+                            <constraint firstItem="51t-9B-F6y" firstAttribute="leading" secondItem="HOA-XU-9zR" secondAttribute="leadingMargin" constant="20" id="ybu-TZ-ZHA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S6V-pj-MYi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Pt-dR-15d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.8840579710145" y="20.758928571428569"/>
+        </scene>
+        <!--NIBM Event-->
+        <scene sceneID="abt-VU-R8y">
+            <objects>
+                <viewController id="BwB-pI-Nkx" customClass="RegisterController" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XFn-pT-pyI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7E-bo-9bn" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="183.5" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Obo-tc-2Wt"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnn-8A-vOO" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="238.5" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wb3-LI-k6H"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-Yx-J3e" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="293.5" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Qcq-ML-qCj"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your information below. your email address and password will become part of your NIBM Event profile" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qms-mR-m3q">
+                                <rect key="frame" x="30" y="128" width="354" height="50.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50.5" id="zQc-tY-z9r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-qL-TtG" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="390" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tCO-Hm-2bw"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cam-KY-vdI" customClass="SATextField" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="445" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="I9i-Gx-uRl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your password must be at least 8 characters long, and combine letters with numeals and/or special characters." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-Yo-k3Z">
+                                <rect key="frame" x="30" y="353.5" width="354" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.071295131629999994" green="0.52621667459999999" blue="0.88235644040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAn-T5-hax" customClass="SAButton" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
+                                <rect key="frame" x="30" y="510" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qrm-HX-Qvq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Register"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qms-mR-m3q" secondAttribute="trailing" constant="30" id="12K-AT-3W8"/>
+                            <constraint firstItem="Sgt-Yx-J3e" firstAttribute="top" secondItem="gnn-8A-vOO" secondAttribute="bottom" constant="5" id="1oo-De-lOr"/>
+                            <constraint firstItem="gnn-8A-vOO" firstAttribute="top" secondItem="W7E-bo-9bn" secondAttribute="bottom" constant="5" id="65l-do-TwR"/>
+                            <constraint firstItem="W7E-bo-9bn" firstAttribute="top" secondItem="qms-mR-m3q" secondAttribute="bottom" constant="5" id="8vx-T7-O9J"/>
+                            <constraint firstItem="HAn-T5-hax" firstAttribute="top" secondItem="cam-KY-vdI" secondAttribute="bottom" constant="15" id="EeT-Mm-TeR"/>
+                            <constraint firstItem="HAn-T5-hax" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="G26-2w-B1g"/>
+                            <constraint firstItem="Sgt-Yx-J3e" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="HgI-bw-Zcx"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="W7E-bo-9bn" secondAttribute="trailing" constant="30" id="JQY-CZ-581"/>
+                            <constraint firstItem="dOz-qL-TtG" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="JTO-nC-2uG"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="HAn-T5-hax" secondAttribute="trailing" constant="30" id="JgQ-zN-HL7"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="gnn-8A-vOO" secondAttribute="trailing" constant="30" id="MCe-y4-TtU"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="cam-KY-vdI" secondAttribute="trailing" constant="30" id="RmL-ZA-jEL"/>
+                            <constraint firstItem="cam-KY-vdI" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="Ve8-1x-EMs"/>
+                            <constraint firstItem="qms-mR-m3q" firstAttribute="leading" secondItem="XFn-pT-pyI" secondAttribute="leading" constant="30" id="WDg-YI-WxW"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="Sgt-Yx-J3e" secondAttribute="trailing" constant="30" id="Zb5-a6-y9c"/>
+                            <constraint firstItem="dOz-qL-TtG" firstAttribute="top" secondItem="eNe-Yo-k3Z" secondAttribute="bottom" constant="5" id="b5z-En-BlW"/>
+                            <constraint firstItem="W7E-bo-9bn" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="eAj-GD-5an"/>
+                            <constraint firstItem="eNe-Yo-k3Z" firstAttribute="top" secondItem="Sgt-Yx-J3e" secondAttribute="bottom" constant="10" id="eId-9q-jnX"/>
+                            <constraint firstItem="cam-KY-vdI" firstAttribute="top" secondItem="dOz-qL-TtG" secondAttribute="bottom" constant="5" id="ioi-Tn-oul"/>
+                            <constraint firstItem="qms-mR-m3q" firstAttribute="top" secondItem="Opo-yh-28E" secondAttribute="top" constant="40" id="qZt-xW-4Am"/>
+                            <constraint firstItem="gnn-8A-vOO" firstAttribute="leading" secondItem="Opo-yh-28E" secondAttribute="leading" constant="30" id="saU-s5-ovI"/>
+                            <constraint firstAttribute="trailing" secondItem="eNe-Yo-k3Z" secondAttribute="trailing" constant="30" id="svk-w8-Eio"/>
+                            <constraint firstItem="Opo-yh-28E" firstAttribute="trailing" secondItem="dOz-qL-TtG" secondAttribute="trailing" constant="30" id="v9B-xJ-IRt"/>
+                            <constraint firstItem="eNe-Yo-k3Z" firstAttribute="leading" secondItem="XFn-pT-pyI" secondAttribute="leading" constant="30" id="wmy-5s-VNH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Opo-yh-28E"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NIBM Event" id="yW7-3l-JWM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JND-4a-iBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2652.1739130434785" y="20.758928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XMq-m1-KFh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="75E-DE-MBq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nw2-Ok-TeN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BwB-pI-Nkx" kind="relationship" relationship="rootViewController" id="m71-Mv-ZKb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Us-dc-b9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="21"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NIBM-Logo" width="150" height="50.5"/>
+    </resources>
 </document>
