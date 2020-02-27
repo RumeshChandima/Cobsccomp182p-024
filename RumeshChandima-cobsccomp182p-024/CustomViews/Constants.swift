@@ -16,3 +16,4 @@ struct Colors {
 struct Fonts {
     static let avenirNextCondensedDemiBold = "AvenirNextCondensed-DemiBold"
 }
+
