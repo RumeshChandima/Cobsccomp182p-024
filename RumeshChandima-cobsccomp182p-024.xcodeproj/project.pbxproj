@@ -13,6 +13,14 @@
 		6F1D39992402C09600935AC7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1D39982402C09600935AC7 /* RegisterController.swift */; };
 		6F1D399B2402E4A900935AC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F1D399A2402E4A900935AC7 /* GoogleService-Info.plist */; };
 		6F5F5B8524061FAA001B815F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F5B8424061FAA001B815F /* Extensions.swift */; };
+		6F6A1B0C24095ADA00A81CDE /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A1B0A24095ADA00A81CDE /* EventCell.swift */; };
+		6F6A1B0D24095ADA00A81CDE /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A1B0A24095ADA00A81CDE /* EventCell.swift */; };
+		6F6A1B0E24095ADA00A81CDE /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A1B0A24095ADA00A81CDE /* EventCell.swift */; };
+		6F6A1B0F24095ADA00A81CDE /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F6A1B0B24095ADA00A81CDE /* EventCell.xib */; };
+		6F6A1B1024095ADA00A81CDE /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F6A1B0B24095ADA00A81CDE /* EventCell.xib */; };
+		6F6A1B1124095ADA00A81CDE /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F6A1B0B24095ADA00A81CDE /* EventCell.xib */; };
+		6F6A1B1224095B2800A81CDE /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1007CF24057B2100281099 /* ForgotPassword.swift */; };
+		6F6A1B1324095B2800A81CDE /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1007CF24057B2100281099 /* ForgotPassword.swift */; };
 		6FA1516624024EC200CDDED0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1516524024EC200CDDED0 /* LoginController.swift */; };
 		6FA1516A2402563B00CDDED0 /* SAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA151692402563B00CDDED0 /* SAButton.swift */; };
 		6FA1516C240257D800CDDED0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1516B240257D800CDDED0 /* Constants.swift */; };
@@ -53,6 +61,8 @@
 		6F1D39982402C09600935AC7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		6F1D399A2402E4A900935AC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F5F5B8424061FAA001B815F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6F6A1B0A24095ADA00A81CDE /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		6F6A1B0B24095ADA00A81CDE /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		6FA1516524024EC200CDDED0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		6FA151692402563B00CDDED0 /* SAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAButton.swift; sourceTree = "<group>"; };
 		6FA1516B240257D800CDDED0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -106,10 +116,19 @@
 		6F1007CE24057A8200281099 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				6F1007CF24057B2100281099 /* ForgotPassword.swift */,
+				6F6A1B0B24095ADA00A81CDE /* EventCell.xib */,
 				6F1007D024057B2100281099 /* ForgotPassword.xib */,
 			);
 			path = XIBs;
+			sourceTree = "<group>";
+		};
+		6F6A1B0924095A3E00A81CDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F6A1B0A24095ADA00A81CDE /* EventCell.swift */,
+				6F1007CF24057B2100281099 /* ForgotPassword.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6FA1516824024F4300CDDED0 /* CustomViews */ = {
@@ -156,6 +175,7 @@
 		6FFAE6E623F19DEF005B424A /* RumeshChandima-cobsccomp182p-024 */ = {
 			isa = PBXGroup;
 			children = (
+				6F6A1B0924095A3E00A81CDE /* Views */,
 				6FF99D07240649D500C52C99 /* Model */,
 				6F1007CE24057A8200281099 /* XIBs */,
 				6F1D399A2402E4A900935AC7 /* GoogleService-Info.plist */,
@@ -319,6 +339,7 @@
 				6F1D399B2402E4A900935AC7 /* GoogleService-Info.plist in Resources */,
 				6F1007D224057B2100281099 /* ForgotPassword.xib in Resources */,
 				6FFAE6EF23F19DF5005B424A /* Assets.xcassets in Resources */,
+				6F6A1B0F24095ADA00A81CDE /* EventCell.xib in Resources */,
 				6FFAE6ED23F19DEF005B424A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6A1B1024095ADA00A81CDE /* EventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6A1B1124095ADA00A81CDE /* EventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +416,7 @@
 				6FA1516624024EC200CDDED0 /* LoginController.swift in Sources */,
 				6F5F5B8524061FAA001B815F /* Extensions.swift in Sources */,
 				6FF99D0924064A1500C52C99 /* EventDC.swift in Sources */,
+				6F6A1B0C24095ADA00A81CDE /* EventCell.swift in Sources */,
 				6FFAE6E823F19DEF005B424A /* AppDelegate.swift in Sources */,
 				6FF99D0B24065C0500C52C99 /* HomeController.swift in Sources */,
 				6FA1516E24025B5200CDDED0 /* SATextField.swift in Sources */,
@@ -405,7 +429,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6A1B0D24095ADA00A81CDE /* EventCell.swift in Sources */,
 				6FFAE6FD23F19DF5005B424A /* RumeshChandima_cobsccomp182p_024Tests.swift in Sources */,
+				6F6A1B1224095B2800A81CDE /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +439,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6A1B0E24095ADA00A81CDE /* EventCell.swift in Sources */,
 				6FFAE70823F19DF5005B424A /* RumeshChandima_cobsccomp182p_024UITests.swift in Sources */,
+				6F6A1B1324095B2800A81CDE /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

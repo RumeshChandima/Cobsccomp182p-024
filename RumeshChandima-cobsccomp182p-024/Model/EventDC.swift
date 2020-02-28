@@ -10,9 +10,9 @@ import Foundation
 import FirebaseFirestore
 
 struct EventDC {
-    var createrName: String
+    var createrProPic: String
     var id: String
-    var eventName: String
+    var title: String
     var location : String
     var imageUrl: String
     var description: String
