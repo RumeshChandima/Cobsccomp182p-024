@@ -10,12 +10,11 @@ import UIKit
 import Kingfisher
 
 class EventCell: UITableViewCell {
-
-    @IBOutlet weak var posterProPicImg: UIView!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
-    @IBOutlet weak var lblLocation: UILabel!
     
+   // @IBOutlet weak var imgPosterProPic: UIImageView!
+    @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgEvent: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,10 +25,16 @@ class EventCell: UITableViewCell {
         lblTitle.text = event.title
         lblLocation.text = event.location
         lblDescription.text = event.description
-        
+
 //        if let url = URL(string: event.createrProPic){
-//            posterProPicImg.kf.setImage(width: url)
+//            imgPosterProPic.contentMode = .scaleAspectFit
+//            imgPosterProPic.kf.setImage(with: url)
 //        }
+        
+        if let url = URL(string: event.imageUrl){
+            imgEvent.contentMode = .scaleAspectFit
+            imgEvent.kf.setImage(with: url)
+        }
     }
 
     @IBAction func btnGoing(_ sender: Any) {

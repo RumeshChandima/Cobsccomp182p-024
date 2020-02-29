@@ -17,3 +17,6 @@ struct Fonts {
     static let avenirNextCondensedDemiBold = "AvenirNextCondensed-DemiBold"
 }
 
+struct Identifiers {
+    static let EventCell = "EventCell"
+}

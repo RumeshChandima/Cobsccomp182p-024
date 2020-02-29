@@ -9,17 +9,15 @@
 import UIKit
 import FirebaseAuth
 
-class HomeController: UITableViewController {
+class HomeController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-    
-    @IBAction func btnViewProfile(_ sender: Any) {
-        let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Profile")
-        self.present(vc,animated: true,completion: nil)
-    }
-    
 }
+
+e
 

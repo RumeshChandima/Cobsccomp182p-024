@@ -105,13 +105,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RumeshChandima-cobsccomp182p-024/HomeController.swift"
-            timestampString = "604397894.865447"
+            filePath = "RumeshChandima-cobsccomp182p-024/Views/EventCell.swift"
+            timestampString = "604692873.312241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "btnViewProfile(_:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
