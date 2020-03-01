@@ -23,7 +23,6 @@ struct StoryboardId {
 
 struct Identifiers {
     static let EventCell = "EventCell"
-    static let eventCellIdentifier = "EventTableViewCell"
 }
 
 struct Segues {

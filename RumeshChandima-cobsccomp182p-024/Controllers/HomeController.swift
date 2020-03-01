@@ -77,7 +77,7 @@ class HomeController: UIViewController {
         
         guard let email =  Auth.auth().currentUser?.email else { return }
         //get user details from firebase
-        db.userByEmail(email: email)
+        Firestore.firestore().collection("Users").whereField("email", isEqualTo: email)
             .getDocuments() { (snap, error) in
                 if let error = error{
                     debugPrint(error.localizedDescription)
@@ -162,7 +162,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.eventCellIdentifier , for: indexPath) as? EventCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.EventCell, for: indexPath) as? EventCell {
             cell.ConfigureCell(event: events[indexPath.row])
             return cell
         }

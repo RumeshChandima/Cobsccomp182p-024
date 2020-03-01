@@ -11,10 +11,8 @@ import Firebase
 
 class UserEventListController: UIViewController {
     
-    //tabel view
     @IBOutlet weak var eventsTable: UITableView!
     
-    //variables
     var userEvents = [EventDC]()
     var db : Firestore!
     var listner : ListenerRegistration!
@@ -35,7 +33,7 @@ class UserEventListController: UIViewController {
         eventsTable.dataSource = self
         
         //register the table view
-        eventsTable.register(UINib(nibName: Identifiers.eventCellIdentifier, bundle: nil), forCellReuseIdentifier: Identifiers.eventCellIdentifier)
+        eventsTable.register(UINib(nibName: Identifiers.EventCell, bundle: nil), forCellReuseIdentifier: Identifiers.EventCell)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,14 +70,11 @@ class UserEventListController: UIViewController {
         })
     }
     
-    
     @IBAction func addEventBtnClick(_ sender: Any) {
     }
-    
 }
 
 extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
-    
     
     func onEventAdded(change : DocumentChange, event : EventDC){//event added
         
@@ -121,7 +116,7 @@ extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.eventCellIdentifier, for: indexPath) as? EventCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.EventCell, for: indexPath) as? EventCell {
             cell.ConfigureCell(event: userEvents[indexPath.row])
             cell.btnGoingCount.tag = indexPath.row
             cell.btnGoingCount.setTitle("Edit Event", for: .normal)//change the xib name

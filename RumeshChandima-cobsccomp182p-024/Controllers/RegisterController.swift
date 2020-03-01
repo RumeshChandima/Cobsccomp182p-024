@@ -18,12 +18,12 @@ class RegisterController: UIViewController {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
+    @IBOutlet weak var txtPhoneNo: UITextField!
     
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
     }
     
     @IBAction func btnRegister(_ sender: Any) {
@@ -38,25 +38,20 @@ class RegisterController: UIViewController {
     
     func databaseOperation(){
         
-        ref = Database.database().reference()
-        
-        //        self.ref.child("df").child("articles") .setValue(["username": "testusername2"])
-        self.ref.child("Users").childByAutoId().setValue(["FirstName":txtFirstName.text!,"LastName":txtLastName.text!,"Email":txtEmail.text!,"Password": txtPassword.text!])
-        
-        //create the user in authentication
-        
         Auth.auth().createUser(withEmail:txtEmail.text!, password:txtPassword.text!) { authResult, error in
             
             
             if((error==nil)){
-                
-                self.showAlert(title: "Success", message: "User Registration Success !")
+                Firestore.firestore().collection("users").document((authResult?.user.uid)!).setData(["firstname":self.txtFirstName.text!,"lastname":self.txtLastName.text!,"email":self.txtEmail.text!,"contactnumber":self.txtPhoneNo.text!]) { err in
+                    if let err = err {
+                        self.showAlert(title: "Error", message: (error?.localizedDescription)!)
+                        return
+                    }
+                    
+                }
                 
                 let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Login")
                 self.present(vc,animated: true,completion: nil)
-                
-                
-                
             }
             else{
                 
@@ -76,18 +71,5 @@ class RegisterController: UIViewController {
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
         
-    }
-    
-    
-    func setBackground() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        backgroundImageView.image = UIImage(named: "background-NIBM1")
-        view.sendSubviewToBack(backgroundImageView)
     }
 }

@@ -19,6 +19,8 @@ class ProfileController: UIViewController {
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPhoneNo: UITextField!
+    @IBOutlet weak var txtFbUrl: UITextField!
+    @IBOutlet weak var imgProPic: UIImageView!
     
     var UID: String?
     var LIKEHIT: String?
@@ -28,16 +30,14 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
         //ViewUserDetails()
         
         db = Firestore.firestore()
         loggedUserId = UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault)
-        //activityIndicator.startAnimating()//start animating in begiing
-        fetchDocument()
+        getData()
     }
-    
-    func fetchDocument(){
+
+    func getData(){
         
         let docRef = db.collection("Users").document(loggedUserId)
         
@@ -46,51 +46,33 @@ class ProfileController: UIViewController {
             
             let user = User.init(data: data)
             
-            self.ViewUserDetails(user: user)//set the data
-            //self.activityIndicator.stopAnimating()
+            self.setDataToView(user: user)//set the data
         }
         
     }
     
-    func ViewUserDetails(user : User) {
+    func setDataToView(user : User) {
         
-        //self.prof_img.layer.cornerRadius = self.prof_img.bounds.height / 2
-        //self.prof_img.clipsToBounds = true
+        txtFirstName.text = user.firstname
+        txtLastName.text = user.lastname
+        txtEmail.text = user.email
+        txtFbUrl.text = user.facebooklink
+        //txtPhoneNo.text = user.contactnumber!
+        
+        //check mobile number available
+        if user.contactnumber != 0{
+            txtPhoneNo.text = String(user.contactnumber)
+        }else{
+            txtPhoneNo.text = ""
+        }
+        
+        //set the url to the image view
+        if let url = URL(string: user.profilepicUrl){
+            imgProPic.kf.setImage(with: url)
+        }
         
         
-        
-        let ref = Database.database().reference().child("Users").child(UID!)
-        ref.observe(.value, with: { snapshot in
-            
-            let dict = snapshot.value as? [String: AnyObject]
-            let json = JSON(dict as Any)
-            
-            
-            //let imageURL = URL(string: json["profileImageUrl"].stringValue)
-            //self.prof_img.kf.setImage(with: imageURL)
-            
-            //self.DOB_txt.text = json["DOB"].stringValue
-            self.txtFirstName.text = user.name//json["FirstName"].stringValue
-            self.txtLastName.text = user.email//json["LastName"].stringValue
-
-            
-            //self.Phone_Num_txt.text = json["Phone_Number"].stringValue
-            self.txtEmail.text = json["Email"].stringValue
-            
-            
-            
-        })
-    }
-    func setBackground() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        backgroundImageView.image = UIImage(named: "background-NIBM1")
-        view.sendSubviewToBack(backgroundImageView)
     }
     
 }
+
