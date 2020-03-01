@@ -27,7 +27,7 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func btnRegister(_ sender: Any) {
-    
+        
         if(txtPassword.text! == txtConfirmPassword.text! && txtPassword.text!.count>=6){
             databaseOperation()
         }
@@ -77,7 +77,7 @@ class RegisterController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
-
+    
     
     func setBackground() {
         view.addSubview(backgroundImageView)
@@ -90,5 +90,4 @@ class RegisterController: UIViewController {
         backgroundImageView.image = UIImage(named: "background-NIBM1")
         view.sendSubviewToBack(backgroundImageView)
     }
-    
 }

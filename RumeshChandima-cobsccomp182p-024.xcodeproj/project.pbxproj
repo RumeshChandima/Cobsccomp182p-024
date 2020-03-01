@@ -38,6 +38,9 @@
 		6FFAE6F223F19DF5005B424A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FFAE6F023F19DF5005B424A /* LaunchScreen.storyboard */; };
 		6FFAE6FD23F19DF5005B424A /* RumeshChandima_cobsccomp182p_024Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFAE6FC23F19DF5005B424A /* RumeshChandima_cobsccomp182p_024Tests.swift */; };
 		6FFAE70823F19DF5005B424A /* RumeshChandima_cobsccomp182p_024UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFAE70723F19DF5005B424A /* RumeshChandima_cobsccomp182p_024UITests.swift */; };
+		6FFB6B3B240B829D00EBBF59 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6B3A240B829D00EBBF59 /* User.swift */; };
+		6FFB6B3F240BC41600EBBF59 /* CreateEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6B3E240BC41600EBBF59 /* CreateEventController.swift */; };
+		6FFB6B43240BCED400EBBF59 /* UserEventListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6B42240BCED300EBBF59 /* UserEventListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		6FFAE70323F19DF5005B424A /* RumeshChandima-cobsccomp182p-024UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RumeshChandima-cobsccomp182p-024UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FFAE70723F19DF5005B424A /* RumeshChandima_cobsccomp182p_024UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RumeshChandima_cobsccomp182p_024UITests.swift; sourceTree = "<group>"; };
 		6FFAE70923F19DF5005B424A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FFB6B3A240B829D00EBBF59 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6FFB6B3E240BC41600EBBF59 /* CreateEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventController.swift; sourceTree = "<group>"; };
+		6FFB6B42240BCED300EBBF59 /* UserEventListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventListController.swift; sourceTree = "<group>"; };
 		8EA104DF541CB29C9BB938EE /* Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig"; path = "Target Support Files/Pods-RumeshChandima-cobsccomp182p-024/Pods-RumeshChandima-cobsccomp182p-024.release.xcconfig"; sourceTree = "<group>"; };
 		F58449389366F0327DD4EA9B /* Pods_RumeshChandima_cobsccomp182p_024.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RumeshChandima_cobsccomp182p_024.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,10 +135,12 @@
 		6F2E36C6240A366400762BE2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6FFB6B42240BCED300EBBF59 /* UserEventListController.swift */,
 				6FA1516524024EC200CDDED0 /* LoginController.swift */,
 				6F1D39982402C09600935AC7 /* RegisterController.swift */,
 				6FF5FCF3240431D500D05A3A /* ProfileController.swift */,
 				6F2E36C7240A372F00762BE2 /* HomeController.swift */,
+				6FFB6B3E240BC41600EBBF59 /* CreateEventController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF99D0824064A1500C52C99 /* EventDC.swift */,
+				6FFB6B3A240B829D00EBBF59 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -430,6 +439,9 @@
 				6FA1516624024EC200CDDED0 /* LoginController.swift in Sources */,
 				6F5F5B8524061FAA001B815F /* Extensions.swift in Sources */,
 				6F2E36C8240A373000762BE2 /* HomeController.swift in Sources */,
+				6FFB6B3B240B829D00EBBF59 /* User.swift in Sources */,
+				6FFB6B43240BCED400EBBF59 /* UserEventListController.swift in Sources */,
+				6FFB6B3F240BC41600EBBF59 /* CreateEventController.swift in Sources */,
 				6FF99D0924064A1500C52C99 /* EventDC.swift in Sources */,
 				6F6A1B0C24095ADA00A81CDE /* EventCell.swift in Sources */,
 				6FFAE6E823F19DEF005B424A /* AppDelegate.swift in Sources */,

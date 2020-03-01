@@ -17,6 +17,20 @@ struct Fonts {
     static let avenirNextCondensedDemiBold = "AvenirNextCondensed-DemiBold"
 }
 
+struct StoryboardId {
+    static let LogingStroryboardId = "Login"
+}
+
 struct Identifiers {
     static let EventCell = "EventCell"
+    static let eventCellIdentifier = "EventTableViewCell"
+}
+
+struct Segues {
+    static let addEditSeque = "ToCreateEditEvent"
+}
+
+struct UserDefaultsId {
+    static let userIdUserdefault = "loggedUserId"
+    static let userNameUserdefault = "loggedUserName"
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 import SwiftyJSON
 import Kingfisher
 
@@ -22,13 +23,36 @@ class ProfileController: UIViewController {
     var UID: String?
     var LIKEHIT: String?
     
+    var db : Firestore!
+    var loggedUserId : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        ViewUserDetails()
+        //ViewUserDetails()
+        
+        db = Firestore.firestore()
+        loggedUserId = UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault)
+        //activityIndicator.startAnimating()//start animating in begiing
+        fetchDocument()
     }
     
-    func ViewUserDetails() {
+    func fetchDocument(){
+        
+        let docRef = db.collection("Users").document(loggedUserId)
+        
+        docRef.getDocument { (snap, error) in
+            guard let data = snap?.data() else{return}
+            
+            let user = User.init(data: data)
+            
+            self.ViewUserDetails(user: user)//set the data
+            //self.activityIndicator.stopAnimating()
+        }
+        
+    }
+    
+    func ViewUserDetails(user : User) {
         
         //self.prof_img.layer.cornerRadius = self.prof_img.bounds.height / 2
         //self.prof_img.clipsToBounds = true
@@ -46,8 +70,8 @@ class ProfileController: UIViewController {
             //self.prof_img.kf.setImage(with: imageURL)
             
             //self.DOB_txt.text = json["DOB"].stringValue
-            self.txtFirstName.text = json["FirstName"].stringValue
-            self.txtLastName.text = json["LastName"].stringValue
+            self.txtFirstName.text = user.name//json["FirstName"].stringValue
+            self.txtLastName.text = user.email//json["LastName"].stringValue
 
             
             //self.Phone_Num_txt.text = json["Phone_Number"].stringValue

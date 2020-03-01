@@ -17,21 +17,47 @@ extension String{
 
 extension UIViewController{
     
-    func handleFireAuthError(error: Error) {
-        if let errorCode = AuthErrorCode(rawValue: error._code){
-            let alert = UIAlertController(title: "Error", message: errorCode.errorMessage, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
-            
-        }
-    }
-    
     func simpleAlert(title: String, msg: String){
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
 
+    }
+}
+
+extension Firestore {
+    
+    var events : Query {//get all events
+        return collection("Events")
+    }
+    
+    var homeEvents : Query {//get all events order by the time stamp usefull to home page
+        return collection("Events").order(by: "timeStamp", descending: true)
+    }
+    
+    var users : Query {//user colleaction
+        return collection("Users")
+    }
+    
+    func userByEmail(email : String) -> Query {
+        return collection("Users").whereField("email", isEqualTo: email)
+    }
+    
+    func UserAddedEvents(userId : String) -> Query { //get the user added events to my events
+        return collection("Events").whereField("publisherId", isEqualTo: userId).order(by: "timeStamp", descending: true)
+    }
+}
+
+extension Auth {
+    
+    //error handling with firebase and view a alert box
+    func handleFireAuthError(error: Error, viewController : UIViewController){
+        if let errorCode = AuthErrorCode(rawValue: error._code) {
+            let alert = UIAlertController(title: "Error", message: errorCode.errorMessage, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            viewController.present(alert,animated: true,completion: nil)
+        }
     }
 }
 

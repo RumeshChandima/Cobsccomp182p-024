@@ -40,8 +40,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-nb-VNo">
-                                <rect key="frame" x="5" y="171" width="341" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-nb-VNo">
+                                <rect key="frame" x="5" y="170" width="341" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -86,12 +86,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnGoingCount" destination="lMh-v6-Q3E" id="wOY-MV-HRE"/>
                 <outlet property="imgEvent" destination="Ueg-re-zJU" id="xRe-2U-bgz"/>
                 <outlet property="lblDescription" destination="Lmt-nb-VNo" id="hN0-4l-i25"/>
                 <outlet property="lblLocation" destination="FAF-na-Ivl" id="uDm-0c-fMF"/>
                 <outlet property="lblTitle" destination="1sb-go-1Ao" id="rZg-Er-7dO"/>
             </connections>
-            <point key="canvasLocation" x="-414" y="142"/>
+            <point key="canvasLocation" x="-478" y="180"/>
         </tableViewCell>
     </objects>
     <resources>

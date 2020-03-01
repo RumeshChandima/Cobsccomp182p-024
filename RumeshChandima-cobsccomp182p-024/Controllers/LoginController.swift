@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseAuth
-
+import Firebase
 class LoginController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -34,67 +34,39 @@ class LoginController: UIViewController {
     }
     
     @IBAction func btnGoToWithoutLogin(_ sender: Any) {
-        let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Home")
+        let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "HomeNavigate")
         self.present(vc,animated: true,completion: nil)
     }
     
     @IBAction func btnLogin(_ sender: Any) {
-        activityIndicator.startAnimating()
-        Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
-            if error != nil {
+        
+        guard let email = txtEmail.text, email.isNotEmpty ,
+            let password = txtPassword.text, password.isNotEmpty
+            else {
+                simpleAlert(title: "Error", msg: "Please fill out all fields.")
+                return
+        }
+        
+        activityIndicator.startAnimating()//start the animation when button is clicked
+        
+        //firebase auth for loging
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            
+            if let error = error {
+                debugPrint(error)
+                Auth.auth().handleFireAuthError(error: error, viewController:  self)//set the extention toncheck firebase validation
                 self.activityIndicator.stopAnimating()
-                self.showAlert(title: "Error occured", message: "You have error with your mail and password")
+                return
             }
             else if user != nil {
                 self.activityIndicator.stopAnimating()
-
-                self.showAlert(title: "Signed in successfuly", message: "You have been successfully Signed In")
-
+                //self.simpleAlert(title: "Signed in successfuly", msg: "You have been successfully Signed In")
+                
                 let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Home")
                 self.present(vc,animated: true,completion: nil)
-
+                
             }
         }
-        
-//        guard let email = txtEmail.text, email.isNotEmpty ,
-//         let password = txtPassword.text, password.isNotEmpty else {
-//            return
-//        }
-//
-//        activityIndicator.startAnimating()
-//        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-//
-//            if let error = error{
-//                debugPrint(error)
-//                self.activityIndicator.stopAnimating()
-//                return
-//            }
-//
-//            self.activityIndicator.startAnimating()
-//            self.showAlert(title: "Signed in successfuly", message: "You have been successfully Signed In")
-//            if error != nil {
-//
-//                self.showAlert(title: "Error occured", message: "You have error with your mail and password")
-//            }
-//            else if user != nil {
-//
-//                self.showAlert(title: "Signed in successfuly", message: "You have been successfully Signed In")
-//
-//                let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Home")
-//                self.present(vc,animated: true,completion: nil)
-//
-//            }
- //      }
-    }
-    
-    func showAlert(title: String, message: String){
-
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-
-        alertController.addAction(defaultAction)
-        self.present(alertController, animated: true, completion: nil)
-
     }
     
     func setBackground() {
@@ -104,10 +76,8 @@ class LoginController: UIViewController {
         backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-
+        
         backgroundImageView.image = UIImage(named: "background-NIBM1")
         view.sendSubviewToBack(backgroundImageView)
     }
-    
-    
 }
