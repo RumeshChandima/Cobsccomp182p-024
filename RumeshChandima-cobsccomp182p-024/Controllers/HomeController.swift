@@ -89,7 +89,7 @@ class HomeController: UIViewController {
                     let loggedUser = User.init(data: data)
                     
                     UserDefaults.standard.set(loggedUser.id, forKey: UserDefaultsId.userIdUserdefault)//save user id to user default
-                    UserDefaults.standard.set(loggedUser.name, forKey: UserDefaultsId.userNameUserdefault)//save user name for user default
+                    UserDefaults.standard.set(loggedUser.firstname, forKey: UserDefaultsId.userNameUserdefault)//save user name for user default
                     
                 })
         }
