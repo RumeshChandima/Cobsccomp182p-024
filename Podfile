@@ -14,5 +14,4 @@ pod 'Firebase/Firestore'
 pod 'Kingfisher', '~> 5.9'  
 pod 'SwiftyJSON'
 
-
 end
