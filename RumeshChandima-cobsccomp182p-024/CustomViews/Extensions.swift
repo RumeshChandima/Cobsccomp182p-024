@@ -32,7 +32,7 @@ extension Firestore {
     }
     
     var homeEvents : Query {//get all events order by the time stamp usefull to home page
-        return collection("Events").order(by: "timeStamp", descending: true)
+        return collection("Events").order(by: "time", descending: true)
     }
     
     var users : Query {//user colleaction

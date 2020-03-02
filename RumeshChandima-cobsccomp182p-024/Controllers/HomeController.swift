@@ -26,12 +26,7 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        let event = EventDC.init(id: "a123", title: "Event1", location: "Colombo", imageUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eventbrite.com%2F&psig=AOvVaw1bhX1RtEP2Ze_iLHwB8wUy&ust=1583046250550000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMCS7ICZ9ucCFQAAAAAdAAAAABAP", description: "AAA", time: Timestamp(), goingCount: 1)
-        
-        //        let event = EventDC.init
-        //
-        //        events.append(event)
-        
+        db = Firestore.firestore()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.EventCell, bundle: nil), forCellReuseIdentifier: Identifiers.EventCell)
@@ -70,13 +65,12 @@ class HomeController: UIViewController {
             btnProfile.isEnabled = false
         }
         
-        setEventListner()//Initilizing the listner
+        setEventListner()
     }
     
     func getLoggedUserDetails(){
         
         guard let email =  Auth.auth().currentUser?.email else { return }
-        //get user details from firebase
         db.userByEmail(email: email)
             .getDocuments() { (snap, error) in
                 if let error = error{

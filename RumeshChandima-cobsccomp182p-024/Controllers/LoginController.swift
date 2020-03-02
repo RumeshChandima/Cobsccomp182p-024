@@ -28,7 +28,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func btnCreateAccount(_ sender: Any) {
-        let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Register")
+        let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "RegistrationNavigate")
         self.present(vc,animated: true,completion: nil)
     }
     
@@ -61,7 +61,7 @@ class LoginController: UIViewController {
                 self.activityIndicator.stopAnimating()
                 //self.simpleAlert(title: "Signed in successfuly", msg: "You have been successfully Signed In")
                 
-                let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "Home")
+                let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "HomeNavigate")
                 self.present(vc,animated: true,completion: nil)
             }
         }
