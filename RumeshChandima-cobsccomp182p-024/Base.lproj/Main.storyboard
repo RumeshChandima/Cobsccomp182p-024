@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Mg-jq-BaR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hgo-TB-btY">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -505,6 +505,9 @@
                                 <state key="normal" title="Update Your Profile">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="CM6-w4-KcZ" kind="show" id="7X4-6L-NVz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSi-tF-5HF" customClass="SAButton" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
                                 <rect key="frame" x="20" y="615" width="374" height="40"/>
@@ -517,7 +520,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yMH-JZ-hxW" kind="show" id="kVu-nC-LuS"/>
+                                    <segue destination="YaI-gM-Hpw" kind="show" id="otp-Lc-H7y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -570,9 +573,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J0H-rf-vKJ"/>
                     </view>
-                    <connections>
-                        <segue destination="CM6-w4-KcZ" kind="show" id="Lfu-P9-wvZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CK6-ns-ap6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -743,7 +743,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="swj-a3-32l">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -770,7 +770,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuE-ss-IFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5140.579710144928" y="989.73214285714278"/>
+            <point key="canvasLocation" x="6050.7246376811599" y="989.73214285714278"/>
         </scene>
         <!--Create Event-->
         <scene sceneID="GRp-EQ-PBv">
@@ -780,52 +780,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-NIBM2" translatesAutoresizingMaskIntoConstraints="NO" id="9uC-7V-LKs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JR1-jd-WOB">
-                                <rect key="frame" x="20" y="108" width="374" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="40"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ecq-Wm-zgE"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9q1-Kf-f8g">
-                                <rect key="frame" x="20" y="150" width="374" height="30"/>
+                                <rect key="frame" x="20" y="160" width="374" height="40"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lK4-lW-zUv"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Discription" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bi-s1-5Sl">
-                                <rect key="frame" x="20" y="192" width="374" height="50"/>
+                                <rect key="frame" x="20" y="212" width="374" height="40"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hzB-Oo-pl4"/>
+                                    <constraint firstAttribute="height" constant="40" id="hzB-Oo-pl4"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6o-pI-WrX" customClass="RoundedButton" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
-                                <rect key="frame" x="20" y="753" width="374" height="40"/>
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GsS-Ik-9lZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Add Event">
+                                <state key="normal" title="Submit Event">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="eventSubmitButtonClick:" destination="hgo-TB-btY" eventType="touchUpInside" id="y7f-6o-UGt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add the event Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-cF-QWV">
-                                <rect key="frame" x="20" y="262" width="374" height="22.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-cF-QWV">
+                                <rect key="frame" x="20" y="272" width="374" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_pic_1" translatesAutoresizingMaskIntoConstraints="NO" id="zIB-DX-Qy1" customClass="RoundedImageView" customModule="RumeshChandima_cobsccomp182p_024" customModuleProvider="target">
-                                <rect key="frame" x="32" y="304.5" width="350" height="250"/>
+                                <rect key="frame" x="32" y="314.5" width="350" height="250"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="wY0-ab-pIa"/>
@@ -837,9 +846,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-NIBM2" translatesAutoresizingMaskIntoConstraints="NO" id="9uC-7V-LKs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -868,12 +874,8 @@
                         <viewLayoutGuide key="safeArea" id="xi2-Rc-p0x"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="Qts-A7-jQI" id="lRZ-Kf-S3Z"/>
-                        <outlet property="addCategoryBtn" destination="M6o-pI-WrX" id="O32-P1-6BR"/>
-                        <outlet property="eventDiscriptionTxt" destination="1bi-s1-5Sl" id="EZ5-Dy-weh"/>
-                        <outlet property="eventImageView" destination="zIB-DX-Qy1" id="e2A-ea-Bea"/>
-                        <outlet property="eventLocationTxt" destination="9q1-Kf-f8g" id="PBj-kN-GnP"/>
-                        <outlet property="eventNameTxt" destination="JR1-jd-WOB" id="Igr-MT-9i8"/>
+                        <outlet property="activityIndicator" destination="Qts-A7-jQI" id="UYI-S1-geI"/>
+                        <outlet property="eventImageView" destination="zIB-DX-Qy1" id="xZs-i1-XcG"/>
                         <outlet property="txtDescription" destination="1bi-s1-5Sl" id="u63-lQ-5mD"/>
                         <outlet property="txtLocation" destination="9q1-Kf-f8g" id="o4t-3P-8wc"/>
                         <outlet property="txtTitle" destination="JR1-jd-WOB" id="UQs-jR-P5z"/>
@@ -881,7 +883,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfC-tB-Cvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6090" y="990"/>
+            <point key="canvasLocation" x="7000.0000000000009" y="989.73214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uCe-F0-NUR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YaI-gM-Hpw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uuX-ZH-Dso">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yMH-JZ-hxW" kind="relationship" relationship="rootViewController" id="87c-R3-IE3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a6L-d8-ry1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5140.579710144928" y="989.73214285714278"/>
         </scene>
     </scenes>
     <resources>

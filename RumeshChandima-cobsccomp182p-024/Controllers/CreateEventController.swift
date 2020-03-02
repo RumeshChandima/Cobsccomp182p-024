@@ -12,21 +12,16 @@ import FirebaseFirestore
 
 class CreateEventController: UIViewController {
     
-    //text boxes
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var txtLocation: UITextField!
     @IBOutlet weak var txtDescription: UITextField!
     
-    //activity indicator
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    //button
     @IBOutlet weak var addCategoryBtn: UIButton!
     
-    //image viewer
     @IBOutlet weak var eventImageView: RoundedImageView!
     
-    //variable
     var loggedUserID : String!
     var loggedUserName : String!
     var eventDetails : EventDC?
@@ -36,31 +31,26 @@ class CreateEventController: UIViewController {
         
         loggedUserID = UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault)
         loggedUserName = UserDefaults.standard.string(forKey: UserDefaultsId.userNameUserdefault)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(_:))) //tap event inilize
-        tap.numberOfTapsRequired = 1 // set tap count
-        eventImageView.isUserInteractionEnabled = true //set user interaction true
-        eventImageView.addGestureRecognizer(tap)//set the tap as a gesture to image view
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(_:)))
+        tap.numberOfTapsRequired = 1
+        eventImageView.isUserInteractionEnabled = true
+        eventImageView.addGestureRecognizer(tap)
         
-        //if this is opening as edit form event details will nil
         if let event = eventDetails {
             txtTitle.text = event.title
             txtLocation.text = event.location
             txtDescription.text = event.description
             
-            if let url = URL(string: event.imageUrl){//set the image to image viewer
+            if let url = URL(string: event.imageUrl){
                 eventImageView.contentMode = .scaleAspectFit
                 eventImageView.kf.setImage(with: url)
             }
             
-            addCategoryBtn.setTitle("Save Changes", for: .normal)//change the button name
-        }
-        
-        
-        
-        
+            addCategoryBtn.setTitle("Save Changes", for: .normal)
+        }      
     }
     
-    @objc func imgTap(_ tap : UITapGestureRecognizer){//image tap recognizer
+    @objc func imgTap(_ tap : UITapGestureRecognizer){
         
         launchImagePicker()
     }
@@ -73,7 +63,6 @@ class CreateEventController: UIViewController {
     
     func uploadImageThenDocument(){
         
-        //get all the data from text fields and image view
         guard let image = eventImageView.image ,
             let eventTitle = txtTitle.text , eventTitle.isNotEmpty,
             let eventLocation = txtLocation.text , eventLocation.isNotEmpty,
@@ -82,14 +71,13 @@ class CreateEventController: UIViewController {
                 return
         }
         
-        guard let imageData = image.jpegData(compressionQuality: 0.2) else {return}//conveting to data
+        guard let imageData = image.jpegData(compressionQuality: 0.2) else {return}
         
-        let imageRef = Storage.storage().reference().child("/EventImages/\(eventTitle).jpg")//setting the file location and name
+        let imageRef = Storage.storage().reference().child("/EventImages/\(eventTitle).jpg")
         
-        let metaData = StorageMetadata()//set meta data
+        let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
-        //upload the file
         imageRef.putData(imageData, metadata: metaData) { (metaData, error) in
             
             if let error = error {
@@ -97,7 +85,6 @@ class CreateEventController: UIViewController {
                 return
             }
             
-            //get the download url
             imageRef.downloadURL(completion: { (url, error) in
                 if let error = error {
                     self.handleError(error: error, msg: "Unable to retrive image url")
@@ -106,7 +93,7 @@ class CreateEventController: UIViewController {
                 
                 guard let url = url else {return}
                 
-                self.uploadDocument(url: url.absoluteString)//upload the event data to the firestore
+                self.uploadDocument(url: url.absoluteString)
                 
             })
         }
@@ -115,23 +102,21 @@ class CreateEventController: UIViewController {
     func uploadDocument(url : String) {
         
         var docRef : DocumentReference!
-        //set the datato the object
         var event = EventDC.init(title: txtTitle.text ?? "",
-                                 id: "",
+                                 id: UUID().uuidString,
                                  description: txtDescription.text ?? "",
                                  location: txtLocation.text ?? "",
-                                 publisher: loggedUserName,
+                                 publisher: "rumesh",
                                  imageUrl: url,
                                  time: Timestamp(),
-                                 publisherId: loggedUserID,
+                                 publisherId: "c48HxO10a1cT49S93jHt73AxhYr2",
                                  goingCount: [""])
         
         
-        if let eventToEdit = eventDetails {//edit event if event details is available
+        if let eventToEdit = eventDetails {
             docRef = Firestore.firestore().collection("Events").document(eventToEdit.id)
             event.id = eventToEdit.id
         }else{
-            //create a new event
             docRef = Firestore.firestore().collection("Events").document()
             event.id = docRef.documentID
         }
@@ -142,13 +127,14 @@ class CreateEventController: UIViewController {
                 self.handleError(error: error, msg: "Unable to add new event")
                 return
             }
-            
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
             self.navigationController?.popViewController(animated: true)
         }
     }
     
     
-    func handleError(error : Error, msg : String){//fucntion in error
+    func handleError(error : Error, msg : String){
         debugPrint(error.localizedDescription)
         self.simpleAlert(title: "Error", msg: msg)
         self.activityIndicator.stopAnimating()
@@ -159,7 +145,7 @@ class CreateEventController: UIViewController {
 
 extension CreateEventController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func launchImagePicker(){//launching the media
+    func launchImagePicker(){
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self

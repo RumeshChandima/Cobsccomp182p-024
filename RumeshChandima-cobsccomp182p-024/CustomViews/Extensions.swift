@@ -21,7 +21,7 @@ extension UIViewController{
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
-
+        
     }
 }
 
@@ -44,7 +44,7 @@ extension Firestore {
     }
     
     func UserAddedEvents(userId : String) -> Query { //get the user added events to my events
-        return collection("Events").whereField("publisherId", isEqualTo: userId).order(by: "timeStamp", descending: true)
+        return collection("Events").whereField("publisherId", isEqualTo: userId).order(by: "time", descending: true)
     }
 }
 

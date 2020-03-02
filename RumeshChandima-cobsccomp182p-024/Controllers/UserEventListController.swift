@@ -22,17 +22,15 @@ class UserEventListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loggedUserId = UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault)
-        db = Firestore.firestore()//init firestore
+        db = Firestore.firestore()
         setTableView()
         
     }
     
     func setTableView(){
-        //setting delegets and data source
         eventsTable.delegate = self
         eventsTable.dataSource = self
         
-        //register the table view
         eventsTable.register(UINib(nibName: Identifiers.EventCell, bundle: nil), forCellReuseIdentifier: Identifiers.EventCell)
     }
     
@@ -76,22 +74,22 @@ class UserEventListController: UIViewController {
 
 extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
     
-    func onEventAdded(change : DocumentChange, event : EventDC){//event added
+    func onEventAdded(change : DocumentChange, event : EventDC){
         
         let newIndex = Int(change.newIndex)
         userEvents.insert(event, at: newIndex)
         eventsTable.insertRows(at: [IndexPath(item: newIndex, section: 0)], with: .none)
     }
     
-    func onEventModified(change : DocumentChange, event : EventDC) {//event modified
+    func onEventModified(change : DocumentChange, event : EventDC) {
         
-        if change.newIndex == change.oldIndex {//if the previous index is same as the current index
+        if change.newIndex == change.oldIndex {
             
             let index = Int(change.newIndex)
             userEvents[index] = event
             eventsTable.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
             
-        }else{//the item index has been changed from the prevous index
+        }else{
             
             let oldIndex = Int(change.oldIndex)
             let newIndex = Int(change.newIndex)
@@ -104,7 +102,7 @@ extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func onEventRemoved(change : DocumentChange){//event removed
+    func onEventRemoved(change : DocumentChange){
         let oldIndex = Int(change.oldIndex)
         userEvents.remove(at: oldIndex)
         eventsTable.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .fade)
@@ -119,7 +117,7 @@ extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.EventCell, for: indexPath) as? EventCell {
             cell.ConfigureCell(event: userEvents[indexPath.row])
             cell.btnGoingCount.tag = indexPath.row
-            cell.btnGoingCount.setTitle("Edit Event", for: .normal)//change the xib name
+            cell.btnGoingCount.setTitle("Edit Event", for: .normal)
             cell.btnGoingCount.addTarget(self, action: #selector(editEvent(_:)), for: .touchUpInside)
             
             return cell

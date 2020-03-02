@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-import Firebase
+import FirebaseFirestore
 import SwiftyJSON
 import Kingfisher
 
@@ -36,7 +36,7 @@ class ProfileController: UIViewController {
         loggedUserId = UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault)
         getData()
     }
-
+    
     func getData(){
         
         let docRef = db.collection("Users").document(loggedUserId)
@@ -70,8 +70,6 @@ class ProfileController: UIViewController {
         if let url = URL(string: user.profilepicUrl){
             imgProPic.kf.setImage(with: url)
         }
-        
-        
     }
     
 }

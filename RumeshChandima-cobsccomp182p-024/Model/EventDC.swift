@@ -49,13 +49,13 @@ struct EventDC {
     init(data :[String : Any]) {
         self.title = data["name"] as? String ?? ""
         self.id = data["id"] as? String ?? ""
-        self.description = data["discription"] as? String ?? ""
+        self.description = data["description"] as? String ?? ""
         self.location = data["location"] as? String ?? ""
         self.publisher = data["publisher"] as? String ?? ""
-        self.imageUrl = data["eventimageUrl"] as? String ?? ""
-        self.time = data["timeStamp"] as? Timestamp ?? Timestamp()
+        self.imageUrl = data["imageUrl"] as? String ?? ""
+        self.time = data["time"] as? Timestamp ?? Timestamp()
         self.publisherId = data["publisherId"] as? String ?? ""
-        self.goingCount = (data["participating"] as? Array ?? nil) ?? [""]
+        self.goingCount = (data["goingCount"] as? Array ?? nil) ?? [""]
     }
     
     static func modelToData(event : EventDC) -> [String:Any]{// set the event data to dictionaty
