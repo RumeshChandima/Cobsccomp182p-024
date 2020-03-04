@@ -30,13 +30,6 @@ class HomeController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.EventCell, bundle: nil), forCellReuseIdentifier: Identifiers.EventCell)
-    
-//        
-//        if Auth.auth().currentUser == nil {
-//          btnProfile.isEnabled = false
-//          btnLogout.isEnabled = false
-//        }
-//    
     }
     
     @IBAction func btnLogout(_ sender: Any) {
@@ -78,7 +71,6 @@ class HomeController: UIViewController {
     func getLoggedUserDetails(){
         
         guard let email =  Auth.auth().currentUser?.email else { return }
-        //get user details from firebase
         db.userByEmail(email: email)
             .getDocuments() { (snap, error) in
                 if let error = error{
@@ -90,12 +82,10 @@ class HomeController: UIViewController {
                     let data = doc.data()
                     let loggedUser = User.init(data: data)
                     
-                    UserDefaults.standard.set(loggedUser.id, forKey: UserDefaultsId.userIdUserdefault)//save user id to user default
-                    
+                    UserDefaults.standard.set(loggedUser.id, forKey: UserDefaultsId.userIdUserdefault)
                 })
         }
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
@@ -137,7 +127,6 @@ class HomeController: UIViewController {
     
     @objc func addGoing(_ sender : UIButton){
         
-        
         db.UpdateGoingCounts(eventID: events[sender.tag].id,completion:{ (response) in
             
             if(response)
@@ -146,17 +135,11 @@ class HomeController: UIViewController {
                 
                 sender.setTitle("Going", for: .normal)
                 sender.isEnabled = false
-                
             }
-            
         })
-        
-
-        
-        
     }
     
-    func setEventListner() {//document listner
+    func setEventListner() {
         
         listner = db.homeEvents.addSnapshotListener({ (snap, error) in
             if let error = error{
@@ -168,7 +151,7 @@ class HomeController: UIViewController {
                 let data = change.document.data()
                 let event = EventDC.init(data: data)
                 
-                switch change.type{//checking the change mode
+                switch change.type{
                 case .added:
                     self.onEventAdded(change: change, event: event)
                 case .modified:
@@ -179,27 +162,26 @@ class HomeController: UIViewController {
             })
         })
     }
-    
 }
 
 extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
-    func onEventAdded(change : DocumentChange, event : EventDC){//event added
+    func onEventAdded(change : DocumentChange, event : EventDC){
         
         let newIndex = Int(change.newIndex)
         events.insert(event, at: newIndex)
         tableView.insertRows(at: [IndexPath(item: newIndex, section: 0)], with: .none)
     }
     
-    func onEventModified(change : DocumentChange, event : EventDC) {//event modified
+    func onEventModified(change : DocumentChange, event : EventDC) {
         
-        if change.newIndex == change.oldIndex {//if the previous index is same as the current index
+        if change.newIndex == change.oldIndex {
             
             let index = Int(change.newIndex)
             events[index] = event
             tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
             
-        }else{//the item index has been changed from the prevous index
+        }else{
             
             let oldIndex = Int(change.oldIndex)
             let newIndex = Int(change.newIndex)
@@ -208,14 +190,12 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             events.insert(event, at: newIndex)
             
             tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
-            
         }
     }
     
-    func onEventRemoved(change : DocumentChange){//event removed
+    func onEventRemoved(change : DocumentChange){
         let oldIndex = Int(change.oldIndex)
         events.remove(at: oldIndex)
         tableView.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .fade)
     }
-    
 }

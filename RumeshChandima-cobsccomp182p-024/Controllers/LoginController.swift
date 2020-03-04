@@ -46,20 +46,18 @@ class LoginController: UIViewController {
                 return
         }
         
-        activityIndicator.startAnimating()//start the animation when button is clicked
+        activityIndicator.startAnimating()
         
-        //firebase auth for loging
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if let error = error {
                 debugPrint(error)
-                Auth.auth().handleFireAuthError(error: error, viewController:  self)//set the extention toncheck firebase validation
+                Auth.auth().handleFireAuthError(error: error, viewController:  self)
                 self.activityIndicator.stopAnimating()
                 return
             }
             else if user != nil {
                 self.activityIndicator.stopAnimating()
-                //self.simpleAlert(title: "Signed in successfuly", msg: "You have been successfully Signed In")
                 
                 let vc = UIStoryboard(name:"Main",bundle: nil).instantiateViewController(withIdentifier: "HomeNavigate")
                 self.present(vc,animated: true,completion: nil)

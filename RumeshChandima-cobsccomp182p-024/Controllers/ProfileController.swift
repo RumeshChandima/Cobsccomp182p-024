@@ -42,20 +42,16 @@ class ProfileController: UIViewController {
                     
                     DispatchQueue.main.async {
                         if success {
-                            // User authenticated successfully, take appropriate action
                             self.showAlert(title: "Success", msg:  "Awesome!!... User authenticated successfully")
                         } else {
-                            // User did not authenticate successfully, look at error and take appropriate action
                             self.showAlert(title: "Error", msg:  "Sorry!!... User did not authenticate successfully")
                         }
                     }
                 }
             } else {
-                // Could not evaluate policy; look at authError and present an appropriate message to user
                 showAlert(title: "Error", msg:  "Sorry!!.. Could not evaluate policy.")
             }
         } else {
-            // Fallback on earlier versions
             
             showAlert(title: "Error", msg:  "Ooops!!.. This feature is not supported.")
         }
@@ -63,26 +59,18 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ViewUserDetails()
-        
         
         accessTouchIDOrFaceId()
         
         db = Firestore.firestore()
         loggedUserId = UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault)
         
-        //set the gesture to image selector
         let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(_:)))
-        tap.numberOfTapsRequired = 1 //tap count to the gesture
-        imgProPic.isUserInteractionEnabled = true //set image viewer eneble the user interation
-        imgProPic.addGestureRecognizer(tap)//set the tap gesture to image viwer
-        
+        tap.numberOfTapsRequired = 1
+        imgProPic.isUserInteractionEnabled = true
+        imgProPic.addGestureRecognizer(tap)
         
         getData()
-        
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,7 +79,7 @@ class ProfileController: UIViewController {
     
     
     @IBAction func updateBtnClick(_ sender: Any) {
-         uploadEdditedUserImage()
+        uploadEdditedUserImage()
     }
     
     func uploadEdditedUserImage(){
@@ -116,8 +104,7 @@ class ProfileController: UIViewController {
                 
                 guard let url = url else {return}
                 
-                self.updateUserData(url: url.absoluteString)//upload the event data to the firestore
-                
+                self.updateUserData(url: url.absoluteString)
             })
             
         }
@@ -145,30 +132,27 @@ class ProfileController: UIViewController {
             
             let alert = UIAlertController(title: "Success", message: "Successfully updated the user", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-           self.present(alert,animated: true, completion: nil)
+            self.present(alert,animated: true, completion: nil)
         }
     }
     
-    
-    @objc func imgTap(_ tap : UITapGestureRecognizer){//image tap recognizer
+    @objc func imgTap(_ tap : UITapGestureRecognizer){
         
         launchImagePicker()
     }
-    
     
     func getData(){
         
         let docRef = db.collection("Users").document(loggedUserId)
         
         docRef.getDocument { (snap, error) in
-        
+            
             guard let data = snap?.data() else{return}
             print(data)
             let user = User.init(data: data)
             
-            self.setDataToView(user: user)//set the data
+            self.setDataToView(user: user)
         }
-        
     }
     
     func setDataToView(user : User) {
@@ -177,36 +161,28 @@ class ProfileController: UIViewController {
         txtLastName.text = user.lastname
         txtEmail.text = user.email
         txtFbUrl.text = user.facebooklink
-        //txtPhoneNo.text = user.contactnumber!
         
-        //check mobile number available
         if user.contactnumber != 0{
             txtPhoneNo.text = String(user.contactnumber)
         }else{
             txtPhoneNo.text = ""
         }
         
-        //set the url to the image view
         if let url = URL(string: user.profilepicUrl){
             imgProPic.kf.setImage(with: url)
         }
     }
-    
- 
-    
-    
 }
 
 extension ProfileController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-    func launchImagePicker(){//launching the media
+    func launchImagePicker(){
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         present(imagePicker,animated: true, completion: nil)
     }
     
-    //after picking the media
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[.originalImage] as? UIImage else {return}
@@ -215,7 +191,6 @@ extension ProfileController : UIImagePickerControllerDelegate,UINavigationContro
         dismiss(animated: true, completion: nil)
     }
     
-    //if imge selector cancelled
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

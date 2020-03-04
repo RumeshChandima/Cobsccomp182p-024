@@ -19,16 +19,10 @@ class UpdateProfileViewController: UIViewController {
     @IBOutlet weak var phoneNumberTxt: SATextField!
     @IBOutlet weak var emailTxt: SATextField!
     @IBOutlet weak var fbProfileTxt: SATextField!
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-  
-
 }

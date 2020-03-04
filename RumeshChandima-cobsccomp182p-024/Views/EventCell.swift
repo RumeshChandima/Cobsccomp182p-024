@@ -12,7 +12,6 @@ import Firebase
 
 class EventCell: UITableViewCell {
     
-    // @IBOutlet weak var imgPosterProPic: UIImageView!
     @IBOutlet weak var lblLocation: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
@@ -27,7 +26,6 @@ class EventCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         db = Firestore.firestore()
         
@@ -37,12 +35,6 @@ class EventCell: UITableViewCell {
         lblTitle.text = event.title
         lblLocation.text = event.location
         lblDescription.text = event.description
-        
-        
-        //        if let url = URL(string: event.createrProPic){
-        //            imgPosterProPic.contentMode = .scaleAspectFit
-        //            imgPosterProPic.kf.setImage(with: url)
-        //        }
         
         if(Auth.auth().currentUser != nil){
             if(event.goingUsers.contains(Auth.auth().currentUser!.uid))
@@ -57,9 +49,7 @@ class EventCell: UITableViewCell {
         else{
             participatingBtn.isHidden = true
         }
-     
-        
-        
+    
         if let url = URL(string: event.imageUrl){
             imgEvent.contentMode = .scaleAspectFit
             imgEvent.kf.setImage(with: url)
@@ -74,8 +64,6 @@ class EventCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

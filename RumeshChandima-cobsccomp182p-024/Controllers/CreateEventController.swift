@@ -24,7 +24,7 @@ class CreateEventController: UIViewController ,CLLocationManagerDelegate{
     
     @IBOutlet weak var eventImageView: RoundedImageView!
     
-       let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     
     var loggedUserID : String!
     var loggedUserName : String!
@@ -137,7 +137,6 @@ class CreateEventController: UIViewController ,CLLocationManagerDelegate{
         }
     }
     
-    
     func handleError(error : Error, msg : String){
         debugPrint(error.localizedDescription)
         self.simpleAlert(title: "Error", msg: msg)
@@ -155,7 +154,6 @@ extension CreateEventController : UIImagePickerControllerDelegate, UINavigationC
         imagePicker.delegate = self
         present(imagePicker,animated: true, completion: nil)
     }
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -178,8 +176,6 @@ extension CreateEventController : UIImagePickerControllerDelegate, UINavigationC
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -201,12 +197,9 @@ extension CreateEventController : UIImagePickerControllerDelegate, UINavigationC
     
     func displayLocationInfo(_ placemark: CLPlacemark?) {
         if let containsPlacemark = placemark {
-            //stop updating location to save battery life
             locationManager.stopUpdatingLocation()
             let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : "" as String
-            //let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
             let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : "" as String
-            //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
             
             txtLocation.placeholder = "Event Location"
             txtLocation.text = "\(locality!) \(administrativeArea!)"
@@ -222,7 +215,6 @@ extension CreateEventController : UIImagePickerControllerDelegate, UINavigationC
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
