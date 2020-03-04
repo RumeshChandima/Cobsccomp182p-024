@@ -46,6 +46,40 @@ extension Firestore {
     func UserAddedEvents(userId : String) -> Query { //get the user added events to my events
         return collection("Events").whereField("publisherId", isEqualTo: userId).order(by: "time", descending: true)
     }
+    
+    func UpdateGoingCounts(eventID: String,completion:@escaping (Bool)->()){
+        
+        let eventDoc = collection("Events").document(eventID)
+        
+        eventDoc.getDocument { (document, error) in
+            if(error == nil){
+                
+                var updatedEvent =  EventDC.init(data: (document?.data())!)
+                
+                var attendeesList = document!.get("goingUsers") as! [String]
+                
+                attendeesList.append(Auth.auth().currentUser!.uid)
+                
+                updatedEvent.goingUsers = attendeesList
+                
+                eventDoc.updateData(["goingUsers":attendeesList]){ err in
+                    if let err = err {
+                        //Alerts.showAlert(title: "Error", message: "Error uploading data: \(err.localizedDescription)", presentingVC: viewController)
+                        print(err.localizedDescription)
+                        completion(false)
+                        return
+                    }
+                    
+                    
+                }
+                
+                completion(true)
+                
+            }
+        }
+       
+    }
+    
 }
 
 extension Auth {
@@ -83,3 +117,16 @@ extension AuthErrorCode{
         }
     }
 }
+
+
+extension UIViewController {
+    
+    //custom alert messages for user
+    func showAlert(title : String, msg : String) {
+        
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert,animated: true, completion: nil)
+    }
+}
+

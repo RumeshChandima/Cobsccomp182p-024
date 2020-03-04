@@ -30,5 +30,17 @@ class RumeshChandima_cobsccomp182p_024Tests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testEmail(){
+        
+       XCTAssert(Validation.isValidInput("user@mail.com"), "Success")
+        
+    }
+    
+    func testPassword()
+    {
+         XCTAssert(Validation.isValidInput("123456"), "Success")
+    }
+    
 
 }

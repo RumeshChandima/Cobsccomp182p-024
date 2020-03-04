@@ -9,8 +9,10 @@
 import UIKit
 import FirebaseStorage
 import FirebaseFirestore
+import FirebaseAuth
+import CoreLocation
 
-class CreateEventController: UIViewController {
+class CreateEventController: UIViewController ,CLLocationManagerDelegate{
     
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var txtLocation: UITextField!
@@ -21,6 +23,8 @@ class CreateEventController: UIViewController {
     @IBOutlet weak var addCategoryBtn: UIButton!
     
     @IBOutlet weak var eventImageView: RoundedImageView!
+    
+       let locationManager = CLLocationManager()
     
     var loggedUserID : String!
     var loggedUserName : String!
@@ -47,7 +51,7 @@ class CreateEventController: UIViewController {
             }
             
             addCategoryBtn.setTitle("Save Changes", for: .normal)
-        }      
+        }
     }
     
     @objc func imgTap(_ tap : UITapGestureRecognizer){
@@ -106,11 +110,11 @@ class CreateEventController: UIViewController {
                                  id: UUID().uuidString,
                                  description: txtDescription.text ?? "",
                                  location: txtLocation.text ?? "",
-                                 publisher: "rumesh",
+                                 publisher: loggedUserName,
                                  imageUrl: url,
                                  time: Timestamp(),
-                                 publisherId: "c48HxO10a1cT49S93jHt73AxhYr2",
-                                 goingCount: [""])
+                                 publisherId: Auth.auth().currentUser!.uid,
+                                 goingCount: [""],goingUsers: [])
         
         
         if let eventToEdit = eventDetails {
@@ -163,6 +167,62 @@ extension CreateEventController : UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func GetCurrentLocation(_ sender: Any) {
+        
+        txtLocation.placeholder = "Fetching Location..."
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+            
+            if (error != nil) {
+                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                return
+            }
+            
+            if (placemarks?.count)! > 0 {
+                let pm = placemarks?[0]
+                self.displayLocationInfo(pm)
+            } else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+    }
+    
+    func displayLocationInfo(_ placemark: CLPlacemark?) {
+        if let containsPlacemark = placemark {
+            //stop updating location to save battery life
+            locationManager.stopUpdatingLocation()
+            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : "" as String
+            //let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
+            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : "" as String
+            //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
+            
+            txtLocation.placeholder = "Event Location"
+            txtLocation.text = "\(locality!) \(administrativeArea!)"
+            
+        }
+        
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error while updating location " + error.localizedDescription)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 

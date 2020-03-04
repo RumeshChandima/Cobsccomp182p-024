@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct EventDC {
     
-   // var createrProPic: String
+    // var createrProPic: String
     var id: String
     var title: String
     var location : String
@@ -21,7 +21,7 @@ struct EventDC {
     var goingCount = [String]()
     var publisherId : String
     var publisher: String
-
+    var goingUsers : [String]
     
     init(
         title:String,
@@ -32,7 +32,8 @@ struct EventDC {
         imageUrl: String,
         time : Timestamp,
         publisherId : String,
-        goingCount : Array<String>) {
+        goingCount : Array<String>,
+        goingUsers: [String]) {
         
         
         self.title = title
@@ -44,6 +45,7 @@ struct EventDC {
         self.location = location
         self.time = time
         self.goingCount = goingCount
+        self.goingUsers = goingUsers
     }
     
     init(data :[String : Any]) {
@@ -56,6 +58,7 @@ struct EventDC {
         self.time = data["time"] as? Timestamp ?? Timestamp()
         self.publisherId = data["publisherId"] as? String ?? ""
         self.goingCount = (data["goingCount"] as? Array ?? nil) ?? [""]
+        self.goingUsers = (data["goingUsers"] as? Array ?? nil) ?? [""]
     }
     
     static func modelToData(event : EventDC) -> [String:Any]{// set the event data to dictionaty
@@ -68,7 +71,8 @@ struct EventDC {
             "publisher": event.publisher,
             "publisherId": event.publisherId,
             "time": event.time,
-            "goingCount": event.goingCount
+            "goingCount": event.goingCount,
+            "goingUsers":event.goingUsers
         ]
         return data
     }

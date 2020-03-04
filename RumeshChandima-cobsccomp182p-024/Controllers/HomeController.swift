@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore 
-import FirebaseAuth
+import Firebase
 import SwiftyJSON
 import Kingfisher
 
@@ -22,6 +21,7 @@ class HomeController: UIViewController {
     var db : Firestore!
     var listner : ListenerRegistration!
     var user : User!
+    var selectedUserEvent : EventDC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,13 @@ class HomeController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.EventCell, bundle: nil), forCellReuseIdentifier: Identifiers.EventCell)
+    
+//        
+//        if Auth.auth().currentUser == nil {
+//          btnProfile.isEnabled = false
+//          btnLogout.isEnabled = false
+//        }
+//    
     }
     
     @IBAction func btnLogout(_ sender: Any) {
@@ -71,6 +78,7 @@ class HomeController: UIViewController {
     func getLoggedUserDetails(){
         
         guard let email =  Auth.auth().currentUser?.email else { return }
+        //get user details from firebase
         db.userByEmail(email: email)
             .getDocuments() { (snap, error) in
                 if let error = error{
@@ -83,10 +91,69 @@ class HomeController: UIViewController {
                     let loggedUser = User.init(data: data)
                     
                     UserDefaults.standard.set(loggedUser.id, forKey: UserDefaultsId.userIdUserdefault)//save user id to user default
-                    UserDefaults.standard.set(loggedUser.firstname, forKey: UserDefaultsId.userNameUserdefault)//save user name for user default
                     
                 })
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.EventCell , for: indexPath) as? EventCell {
+            cell.ConfigureCell(event: events[indexPath.row])
+            
+            cell.userNameBtn.tag = indexPath.row
+            cell.userNameBtn.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
+            
+            cell.participatingBtn.tag = indexPath.row
+            cell.participatingBtn.addTarget(self, action: #selector(addGoing(_:)), for: .touchUpInside)
+            
+            cell.btnGoingCount.isHidden = true
+            
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
+    
+    @objc func goToProfile(_ sender : UIButton){
+        
+        if UserDefaults.standard.string(forKey: UserDefaultsId.userIdUserdefault) != "" {
+            
+            selectedUserEvent = events[sender.tag]
+            performSegue(withIdentifier: Segues.toProile, sender: self)
+        }else{
+            
+            showAlert(title: "Error", msg: "Sign in to view the profile details")
+        }
+    }
+    
+    @objc func addGoing(_ sender : UIButton){
+        
+        
+        db.UpdateGoingCounts(eventID: events[sender.tag].id,completion:{ (response) in
+            
+            if(response)
+            {
+                self.showAlert(title: "Success", msg: "Your are added as a participant to this event")
+                
+                sender.setTitle("Going", for: .normal)
+                sender.isEnabled = false
+                
+            }
+            
+        })
+        
+
+        
+        
     }
     
     func setEventListner() {//document listner
@@ -151,19 +218,4 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         tableView.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .fade)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.EventCell, for: indexPath) as? EventCell {
-            cell.ConfigureCell(event: events[indexPath.row])
-            return cell
-        }
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
 }

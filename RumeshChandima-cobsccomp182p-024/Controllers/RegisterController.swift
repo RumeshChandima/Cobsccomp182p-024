@@ -20,8 +20,6 @@ class RegisterController: UIViewController {
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var txtPhoneNo: UITextField!
     
-    var ref: DatabaseReference!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,7 +40,7 @@ class RegisterController: UIViewController {
             
             
             if((error==nil)){
-                Firestore.firestore().collection("Users").document((authResult?.user.uid)!).setData(["firstname":self.txtFirstName.text!,"lastname":self.txtLastName.text!,"email":self.txtEmail.text!,"contactnumber":self.txtPhoneNo.text!]) { err in
+                Firestore.firestore().collection("Users").document((authResult?.user.uid)!).setData(["firstname":self.txtFirstName.text!,"lastname":self.txtLastName.text!,"email":self.txtEmail.text!,"id":(authResult?.user.uid),"contactnumber":self.txtPhoneNo.text!]) { err in
                     if let err = err {
                         self.showAlert(title: "Error", message: (error?.localizedDescription)!)
                         return

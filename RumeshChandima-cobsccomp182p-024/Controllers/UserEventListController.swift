@@ -117,7 +117,7 @@ extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.EventCell, for: indexPath) as? EventCell {
             cell.ConfigureCell(event: userEvents[indexPath.row])
             cell.btnGoingCount.tag = indexPath.row
-            cell.btnGoingCount.setTitle("Edit Event", for: .normal)
+            cell.btnGoingCount.setTitle("Edit", for: .normal)
             cell.btnGoingCount.addTarget(self, action: #selector(editEvent(_:)), for: .touchUpInside)
             
             return cell
@@ -140,7 +140,7 @@ extension UserEventListController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
+        return 400
     }
     
 }
